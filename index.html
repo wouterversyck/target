@@ -7,25 +7,6 @@
             cookieDomain: "wouterversyck.github.io"
         };
     </script>
-
-    <script>
-        
-        if (getRequestParam('askColor')) {
-            const color = prompt("Please select favorite color", "green");
-            window.targetPageParams = function() { 
-                return { 
-                    'color': color
-                }; 
-            }
-        }
-        
-
-        function getRequestParam(name){
-            if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search)) {
-                return decodeURIComponent(name[1]);
-            }
-        }
-    </script>
     
     <script>
         //prehiding snippet for Adobe Target with asynchronous Launch deployment
