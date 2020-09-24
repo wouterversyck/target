@@ -9,11 +9,26 @@
     </script>
 
     <script>
-        var digitalData = {
-            user: {
-                color: prompt('Select color', 'green')
+        let color = 'red';
+
+        if (getRequestParam('askColor')) {
+            color = prompt('Please select favorite color', 'green');    
+        }
+
+        
+        window.targetPageParams = function() { 
+            return { 
+                'color': color
+            }; 
+        }
+        
+
+        function getRequestParam(name) {
+            if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search)) {
+                return decodeURIComponent(name[1]);
             }
         }
+        
     </script>
     
     <script>
