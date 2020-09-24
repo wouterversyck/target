@@ -7,6 +7,29 @@
             cookieDomain: "wouterversyck.github.io"
         };
     </script>
+
+    <script>
+        var theColor = 'red';
+
+        if (getRequestParam('askColor')) {
+            theColor = prompt('Please select favorite color', 'green');    
+        }
+
+        console.log('the color: ' + theColor);
+
+        window.digitalData = {
+            user: {
+                color: theColor
+            }
+        }
+
+
+        function getRequestParam(name) {
+            if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search)) {
+                return decodeURIComponent(name[1]);
+            }
+        }
+    </script>
     
     <script>
         //prehiding snippet for Adobe Target with asynchronous Launch deployment
