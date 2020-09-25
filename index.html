@@ -2,33 +2,11 @@
 <html lang="en">
 <head>
     <title>Adobe target test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         window.targetGlobalSettings = {
             cookieDomain: "wouterversyck.github.io"
         };
-    </script>
-
-    <script>
-        var theColor = 'red';
-
-        if (getRequestParam('askColor')) {
-            theColor = prompt('Please select favorite color', 'green');    
-        }
-
-        console.log('the color: ' + theColor);
-
-        window.digitalData = {
-            user: {
-                color: theColor
-            }
-        }
-
-
-        function getRequestParam(name) {
-            if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search)) {
-                return decodeURIComponent(name[1]);
-            }
-        }
     </script>
     
     <script>
@@ -41,6 +19,17 @@
 <body>
     <h1>Target, by Adobe: Sample HTML Page</h1>
     <p>This is a very simple page to demonstrate basic implementation concepts of Launch, by Adobe</p>
-    <p>See <a href="https://docs.adobe.com/content/help/en/experience-cloud/implementing-in-websites-with-launch/index.html">Implementing the Experience Cloud in Websites with Launch</a> for the complete tutorial</p>
+    <div>
+        <p>what is your favorite color</p>
+        <input id="input-color" type="text">
+        <button id="button-color">Submit</button>
+    </div>
+    <script>
+        $("#button-color").click(function() {
+            var color = $("#input-color").val();
+            console.log("color: " + color);
+            localStorage.setItem("profile.favoriteColor", color);
+        });
+    </script>
 </body>
 </html>
